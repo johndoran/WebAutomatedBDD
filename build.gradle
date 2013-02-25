@@ -1,0 +1,57 @@
+apply plugin: "groovy"
+apply plugin: "idea"
+
+/*
+buildscript {
+    apply from: 'https://github.com/samueltbrown/gradle-cucumber-plugin/raw/master/repo/gradle-cucumber-plugin/gradle-cucumber-plugin/0.2/cucumberinit.gradle'
+} */
+
+repositories {
+	mavenCentral()
+}
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+def version = [
+        'groovy'    : '1.8.6',
+        'junit'     : '4.10',
+        'geb'       : '0.7.2',
+        'selenium'  : '2.25.0',
+        'cucumber'  : '1.0.8'
+]
+
+ext.drivers = ["htmlunit", "firefox", "chrome"]
+
+dependencies {
+
+    groovy "org.codehaus.groovy:groovy-all:$version.groovy"
+
+    testCompile "junit:junit:$version.junit"
+    testCompile "org.codehaus.geb:geb-junit4:$version.geb"
+
+    testCompile "info.cukes:cucumber-groovy:$version.cucumber"
+    testCompile "info.cukes:cucumber-junit:$version.cucumber"
+
+    // Drivers
+    drivers.each { driver ->
+        testCompile "org.seleniumhq.selenium:selenium-$driver-driver:$version.selenium"
+    }
+
+   /* cucumberRuntime files("${jar.archivePath}"),
+            "info.cukes:cucumber-groovy:$version.cucumber"  */
+}
+
+/*
+
+cucumber {
+    formats = ['pretty','json:build/cucumber.json','junit:build/cucumber.xml']
+    glueDirs = ['src/test/groovy/',
+            'src/test/groovy/features',
+            'src/test/groovy/pages',
+            'src/test/groovy/modules']
+    featureDirs = ['src/test/resources/features']
+    monochrome = false
+    strict = false
+    dryRun = false
+}       */

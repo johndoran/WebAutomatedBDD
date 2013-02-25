@@ -1,6 +1,11 @@
-WebAutomatedBDD
-===============
 
-Groovy project with cucumber and geb. Build with gradle and produces html + json reports.
+Sample project to use Cucumber-JVM with Geb
 
-Tests a js heavy mobile website http://m.jetstar.com
+Status
+-------
+* Review is needed
+
+Known Issues
+-------
+* 'gradle test' doesn't fail even a feature fails. Works in Idea
+*
