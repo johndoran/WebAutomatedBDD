@@ -7,9 +7,9 @@ Sample project to test out some ui bdd with groovy
 
 Setup
 -------
-'gradle clean idea'
-'gradle test'
-check build/cucumber for reports + json output for hudson plugin
+ - 'gradle clean idea'
+ - 'gradle test'
+ - check build/cucumber for reports + json output for hudson plugin
 
 TODO
 -------
